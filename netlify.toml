@@ -1,4 +1,4 @@
 [build]
-base = "01-JSCore-ES6-Babel-Webpack"
+base = "02-design-patterns"
 publish = "dist"
 command = "npm run build" 
