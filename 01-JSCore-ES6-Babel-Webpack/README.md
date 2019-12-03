@@ -1,5 +1,3 @@
-# frontcamp
-
 ## JavaScript Core: ES6 + Babel + Webpack
 1) Go to https://newsapi.org/
 2) Press ‘Get Api Key’ on the right
