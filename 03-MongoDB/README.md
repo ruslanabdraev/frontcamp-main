@@ -37,7 +37,7 @@
     ```
     db.restaurants.find({ name: "Glorious Food" })
     ```
-2) Drop index from task 4.1
+2) Drop index from task 1 current topic
 3) Create an index to make this query covered and provide proof (from explain() or Compass UI) that it is indeed covered:
 db.restaurants.find({ restaurant_id: "41098650" }, { _id: 0, borough: 1 })
 4) Create a partial index on cuisine field which will be used only when filtering on borough equal to “Staten Island”:
@@ -46,7 +46,7 @@ db.restaurants.find({ restaurant_id: "41098650" }, { _id: 0, borough: 1 })
     db.restaurants.find({ borough: "Staten Island", name: "Bagel Land" }) – does not use index
     db.restaurants.find({ borough: "Queens", cuisine: "Pizza" }) – does not use index
     ```
-5) Create an index to make query from task 3.4 covered and provide proof (from explain() or Compass UI) that it is indeed covered
+5) Create an index to make query from task 4 previous topic (Querying Restaurants Collection) covered and provide proof (from explain() or Compass UI) that it is indeed covered
 
 ### Part 2
 #### Precondition
