@@ -10,7 +10,7 @@ Develop “news application” that provides basic functionality: add, get, edit
     - PUT /news/{id}
     - DELETE /news/{id}
 
-4)Implement error handling middleware (http://expressjs.com/en/guide/error-handling.html) which will send an error   without stack trace to the client. Use any express view engine to wrap an error.
+4) Implement error handling middleware (http://expressjs.com/en/guide/error-handling.html) which will send an error   without stack trace to the client. Use any express view engine to wrap an error.
 
 **Advanced:** 
     - All frameworks and libraries that used in project should be added to package.json.
