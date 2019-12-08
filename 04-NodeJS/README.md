@@ -28,4 +28,4 @@ Develop “news application” that provides basic functionality: add, get, edit
 4) Describe mongoose scheme for User model. Add registration/authorization functionality (passportjs) for accessing functionality edit/delete news.
 
 **Advanced:**
-- Add facebook authentication (passport.js)
+- Add facebook authentication (passport.js).
