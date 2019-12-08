@@ -72,13 +72,13 @@ db.restaurants.find({ restaurant_id: "41098650" }, { _id: 0, borough: 1 })
 ### Part 2
 #### Precondition
 Import Airline Collection. Follow these steps to import airlines collection to your local data base:
-    - Save airlines.csv on your PC
-    - Run local instance of MongoDB
-    - Use mongoimport to import the collection to the database
-        ```
-        mongoimport.exe -d frontcamp -c airlines --type csv --headerline --file <path to airlines.csv>
-        ```
-    - Verify that the number of the documents in the airlines collection is 186648
+- Save airlines.csv on your PC
+- Run local instance of MongoDB
+- Use mongoimport to import the collection to the database
+    ```
+    mongoimport.exe -d frontcamp -c airlines --type csv --headerline --file <path to airlines.csv>
+    ```
+- Verify that the number of the documents in the airlines collection is 186648
 
 #### Aggregating Airlines Collection
 1) How many records does each airline class have? Use $project to show result as `{ class: "Z", total: 999 }`
