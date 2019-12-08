@@ -72,13 +72,13 @@ db.restaurants.find({ restaurant_id: "41098650" }, { _id: 0, borough: 1 })
 ### Part 2
 #### Precondition
 Import Airline Collection. Follow these steps to import airlines collection to your local data base:
-    - Save airlines.csv on your PC
-    - Run local instance of MongoDB
-    - Use mongoimport to import the collection to the database
-        ```
-        mongoimport.exe -d frontcamp -c airlines --type csv --headerline --file <path to airlines.csv>
-        ```
-    - Verify that the number of the documents in the airlines collection is 186648
+- Save airlines.csv on your PC
+- Run local instance of MongoDB
+- Use mongoimport to import the collection to the database
+    ```
+    mongoimport.exe -d frontcamp -c airlines --type csv --headerline --file <path to airlines.csv>
+    ```
+- Verify that the number of the documents in the airlines collection is 186648
 
 #### Aggregating Airlines Collection
 1) How many records does each airline class have? Use $project to show result as `{ class: "Z", total: 999 }`
@@ -86,3 +86,35 @@ Import Airline Collection. Follow these steps to import airlines collection to y
 3) Which carriers provide flights to Latvia (destCountry)? Show result as one document `{ "_id" : "Latvia", "carriers" : [ "carrier1", " carrier2", …] }`
 4) What are the carriers which flue the most number of passengers from the United State to either Greece, Italy or Spain? Find top 10 carriers, but provide the last 7 carriers (do not include the first 3). Show result as `{ "_id" : "<carrier>", "total" : 999}`
 5) Find the city (originCity) with the highest sum of passengers for each state (originState) of the United States (originCountry). Provide the city for the first 5 states ordered by state alphabetically (you should see the city for Alaska, Arizona and etc). Show result as `{ "totalPassengers" : 999, "location" : { "state" : "abc", "city" : "xyz" } }`
+
+## Node.js
+### Part 1
+Develop “news application” that provides basic functionality: add, get, edit, delete news using node.js and express framework.Part 1: 
+1) Install NodeJS. Use npm to install express framework to your project folder.
+2) Implement and run simple web-server which will always return JSON of fixed news entities (any route, any request).
+3) Extend web-server functionality from #2. Use Rest API to implement CRUD operations endpoints for news articles. You can log on console all operations until part 2. Use postman, curl or any other tool to test your endpoints.Example of routes: 
+    - GET /news
+    - GET /news/{id}
+    - POST /news
+    - PUT /news/{id}
+    - DELETE /news/{id}
+4) Implement error handling middleware (http://expressjs.com/en/guide/error-handling.html) which will send an error   without stack trace to the client. Use any express view engine to wrap an error.
+
+**Advanced:**
+- All frameworks and libraries that used in project should be added to package.json.
+- Application (node.js server) should launch with command “npm start”. 
+- Add simple logging mechanism to write URL and Date info to file per each request (try https://github.com/winstonjs/winston or any other library).
+
+### Part 2
+1) Install and setup mongoose.
+2) Create a mongoose scheme for news entity.
+3) Replace "console logs"/stubs from part 1 to real communication with database.
+    - Find all news
+    - Find news by ID
+    - Insert news
+    - Update news record
+    - Delete news from DB
+4) Describe mongoose scheme for User model. Add registration/authorization functionality (passportjs) for accessing functionality edit/delete news.
+
+**Advanced:**
+- Add facebook authentication (passport.js).
