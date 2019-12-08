@@ -1,4 +1,0 @@
-[build]
-base = "02-design-patterns"
-publish = "dist"
-command = "npm run build" 
