@@ -15,8 +15,8 @@ const MovieItem = ({imageUrl="", title="", genre="", releasedAt=0}) => {
         <Container>
             <Img src={imageUrl}></Img>
             <div>
-            <span>{title}</span><span>{releasedAt}</span>
-            <div>{genre}</div>
+                <span>{title}</span><span>{releasedAt}</span>
+                <div>{genre}</div>
             </div>
         </Container>
     )

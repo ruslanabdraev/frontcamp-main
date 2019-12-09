@@ -22,24 +22,38 @@ const Button = styled.button`
 
 const Container = styled.div`
   text-align: center;
+  margin: 0px 0px 15px 0px;
 `
 
 const Search = ({onSearch=f=>f}) => {
-    let _searchValue
+    let _searchValue, _title, _genre
+
+    const handleSearch = () => {
+      const option = _title.checked ? _title.value: _genre.value
+      onSearch(_searchValue.value, option)
+    }
 
     const onEnter = (e) => {
         if (e.key === 'Enter') {
           e.preventDefault()
-          onSearch(_searchValue.value)
+          handleSearch()
         }
     }
     
     return (
         <Container>
             <Input type="text" ref={input => _searchValue = input} onKeyDown={onEnter}></Input>
-            <Button onClick={()=>onSearch(_searchValue.value)} primary>SEARCH</Button>
+            <Button onClick={handleSearch} primary>SEARCH</Button>
             <br></br>
-            SEARCH BY
+            SEARCH BY  
+            <label>
+                <input type="radio" ref={title => _title = title} id="title" name="movie" value="title" readOnly defaultChecked/>
+                TITLE
+            </label>
+            <label>
+                <input type="radio" ref={genre => _genre = genre} id="genre" name="movie" readOnly value="genre"/>
+                GENRE
+            </label>
         </Container>
 )}
 
