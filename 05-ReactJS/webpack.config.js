@@ -18,13 +18,20 @@ module.exports = {
                 use: 'babel-loader'
             },
             {
-                test: /\.(css|jpg)$/,
+                test: /\.(css)$/,
                 use:['style-loader', 'css-loader',{
                     loader: 'postcss-loader',
                     options: {
                         plugins: () => [require('autoprefixer')]
                     }}]
-            }
+            },{
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+              },
         ]
     },
     resolve: {
