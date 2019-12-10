@@ -16,6 +16,14 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
                 use: 'babel-loader'
+            },
+            {
+                test: /\.(css|jpg)$/,
+                use:['style-loader', 'css-loader',{
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: () => [require('autoprefixer')]
+                    }}]
             }
         ]
     },

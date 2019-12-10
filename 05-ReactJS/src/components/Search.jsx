@@ -1,30 +1,37 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+const Container = styled.div`
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0px 0px 15px 0px;
+`
+
 const Input = styled.input`
-    width: 350px;
-    height: 20px;
+    background: #282828;
+    border-radius: 3px;
+    border: 1px solid rgb(246,82,97);
+    color: white;
+    width: 500px;
+    height: 40px;
+    margin: 0px;
+    padding: 0px 0.5em;
 `
 
 const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0.5em 1em;
-  padding: 0.25em 1em;
+    background: transparent;
+    border-radius: 3px;
+    border: 1px solid rgb(246,82,97);
+    color: rgb(246,82,97);
+    height: 40px;
+    margin: 0em 2em;
+    padding: 0.25em 1em;
 
-  ${props => props.primary && css`
-    background: palevioletred;
-    color: white;
-  `}
-`;
-
-const Container = styled.div`
-  text-align: center;
-  margin: 0px 0px 15px 0px;
+    ${props => props.primary && css`
+      background: rgb(246,82,97);
+      color: white;
+    `}
 `
-
 const Search = ({onSearch=f=>f}) => {
     let _searchValue, _title, _genre
 

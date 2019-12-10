@@ -1,18 +1,22 @@
 import styled from 'styled-components'
 
 const Line = styled.div`
-    background-color: gray;
+    background-color: #858584;
+    font-size: 1.5em;
 	margin: 0px auto;
-	padding: 5px;
-    height: 20px;
+    padding: 6px;
+    height: 40px;
 `
 
 const LeftContainer = styled.div`
-	width: 300px;
+    padding: 6px;
+    width: 250px;
+    margin: 0px 0px 0px 20px;
 	float: left; 
 `
 
 const RightContainer = styled.div`
+    padding: 5px;
 	width: 300px;
 	float: right;
 `
