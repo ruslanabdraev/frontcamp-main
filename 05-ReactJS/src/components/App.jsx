@@ -1,8 +1,8 @@
 import Search from './Search'
-import MovieItem from './MovieItem'
 import styled from 'styled-components'
 import Panel from './Panel'
 import ErrorBoundary from './ErrorBoundary'
+import MovieList from './MovieList'
 
 const Container = styled.div`
     background: #353535;
@@ -23,24 +23,13 @@ const onSort = (option) => {
     console.log("Sort by: ", option)
 }
 
-const imgUrl = "https://images-na.ssl-images-amazon.com/images/I/51%2Bzb74v-TL.jpg"
-
 const App = () => (
     <Container>
         <ErrorBoundary>
             <Header>FIND YOUR MOVIE</Header>
-            <Search onSearch={onSearch}></Search>
-            <Panel onSort={onSort}></Panel>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
-            <MovieItem imageUrl={imgUrl} title={"Star Wars"} genre={"Genre 1"} releasedAt={1977}></MovieItem>
+            <Search onSearch={onSearch} />
+            <Panel movieCount={10} onSort={onSort} />
+            <MovieList />
         </ErrorBoundary>
     </Container>
 )
