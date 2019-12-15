@@ -5,6 +5,7 @@ module.exports = {
     mode: "development",  
     entry: "./src/index.js",
     output: {
+        publicPath: "/",  // solved /movie/:id issue
         path: path.resolve(__dirname, 'dist'),
         filename: "main.js",
         sourceMapFilename: 'main.map'
@@ -41,5 +42,8 @@ module.exports = {
       new HtmlWebpackPlugin({
         template: './src/index.html'
       })
-    ]
+    ],
+    devServer: {
+      historyApiFallback: true
+  }
 }

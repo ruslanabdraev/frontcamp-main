@@ -58,7 +58,7 @@ const Search = ({onSearch=f=>f}) => {
                 TITLE
             </label>
             <label>
-                <input type="radio" ref={genre => _genre = genre} id="genre" name="movie" readOnly value="genre"/>
+                <input type="radio" ref={genre => _genre = genre} id="genre" name="movie" readOnly value="genres"/>
                 GENRE
             </label>
         </Container>

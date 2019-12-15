@@ -18,7 +18,9 @@ const Release = styled.div`
     float: right;
 `
 const TitleAndGenre = styled.div`
-    float: left;
+    width: 200px;
+    float:left;
+    word-wrap: break-word;
 `
 
 
@@ -27,7 +29,7 @@ const MovieItem = ({imageUrl="", title="", genre="", releasedAt=0}) => {
         <Container>
             <Img src={imageUrl}></Img>
             <div>
-                <TitleAndGenre>{title}<br/>{genre}</TitleAndGenre>
+                <TitleAndGenre><b>{title}</b><br/>{genre}</TitleAndGenre>
                 <Release>{releasedAt}</Release>
             </div>
         </Container>
