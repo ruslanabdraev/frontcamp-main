@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 const Container = styled.div`
@@ -23,11 +24,10 @@ const TitleAndGenre = styled.div`
     word-wrap: break-word;
 `
 
-
-const MovieItem = ({imageUrl="", title="", genre="", releasedAt=0}) => {
+const MovieItem = ({id=0, imageUrl="", title="", genre="", releasedAt=0}) => {
     return(
         <Container>
-            <Img src={imageUrl}></Img>
+            <NavLink to={"/movie/" + id }><Img src={imageUrl}></Img></NavLink>
             <div>
                 <TitleAndGenre><b>{title}</b><br/>{genre}</TitleAndGenre>
                 <Release>{releasedAt}</Release>

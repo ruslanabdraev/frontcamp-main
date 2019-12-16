@@ -20,6 +20,7 @@ const App = () => (
             <Router history={history}>
                 <Switch>
                     <Route exact path={"/"} component={Home}></Route>
+                    <Route path={"/search"} component={Home}></Route>
                     <Route path={"/movie"} component={Movie}></Route>
                     <Route path={"/movie/:id"} component={Movie}></Route>
                     <Route component={NotFound}></Route>

@@ -10,7 +10,7 @@ const MovieList = ({items = []}) => {
     return (
         <>
             {items.map(item => 
-                <MovieItem key={item.id} imageUrl={item.poster_path} title={item.title} genre={genres(item.genres)} releasedAt={item.release_date}></MovieItem>
+                <MovieItem key={item.id} id={item.id} imageUrl={item.poster_path} title={item.title} genre={genres(item.genres)} releasedAt={item.release_date}></MovieItem>
             )}
         </>
     )

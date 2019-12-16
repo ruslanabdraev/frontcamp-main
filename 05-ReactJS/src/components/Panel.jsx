@@ -40,7 +40,7 @@ const Panel = ({movieCount=0, onSort=f=>f}) => {
                     RELEASE DATE
                 </label>
                 <label>
-                    <input type="radio" ref={rating => _rating = rating} id="rating" name="sortby" value="rating" readOnly onClick={handleSort}/>
+                    <input type="radio" ref={rating => _rating = rating} id="vote_average" name="sortby" value="vote_average" readOnly onClick={handleSort}/>
                     RATING
                 </label>
             </RightContainer>
