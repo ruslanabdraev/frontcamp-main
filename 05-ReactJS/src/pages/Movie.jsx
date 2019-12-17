@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {connect} from 'react-redux'
 import history from '../constants/history'
 import styled from 'styled-components'
 
@@ -53,25 +54,7 @@ const RedStyle = styled.span`
     padding: 0 5px 0 0;
 `
 
-const Movie = () => {
-    const [hasMovie, setHasMovie] = useState(false)
-    const [movie, setMovie] = useState(null)
-
-    useEffect(()=>{
-        const movieId = history.location.pathname.split("/")[2];
-
-        if(movieId)
-        {
-            fetch(`https://reactjs-cdp.herokuapp.com/movies/${movieId}`)
-                .then(response => response.json())
-                .then(data => {
-                    setMovie(data);
-                    setHasMovie(true);
-                })
-
-        }
-        
-    }, [])
+const Movie = ({movie = null}) => {
 
     const back = () => {
         history.goBack()
@@ -87,7 +70,7 @@ const Movie = () => {
                 <button onClick={back}>Back</button>
             </p>
             
-               {!hasMovie? <h2>Movie not found</h2> : 
+               {!movie? <h2>Movie not found</h2> : 
                 (<section>
                     <Poster>
                         <Img src={movie.poster_path}></Img>
@@ -115,5 +98,14 @@ const Movie = () => {
         </Container>
     )
 }
-    
-export default Movie
+
+const movieId = () => history.location.pathname.split('/')[2]
+
+export default connect(
+    state => ({
+        movie: state.movies.filter(c=> c.id == movieId())[0]
+    }),
+    dispatch => ({
+        
+    })
+)(Movie)

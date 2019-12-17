@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import ErrorBoundary from './components/ErrorBoundary'
 import history from './constants/history'
-import { BrowserRouter, Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Movie from './pages/Movie'
+import { Provider } from 'react-redux'
 
 const Container = styled.div`
     background: #353535;
@@ -15,8 +16,9 @@ const Container = styled.div`
     margin: 20px auto;
 `
 
-const App = () => (
+const App = ({store}) => (
     <Container>
+        <Provider store={store}>
             <Router history={history}>
                 <Switch>
                     <Route exact path={"/"} component={Home}></Route>
@@ -26,6 +28,7 @@ const App = () => (
                     <Route component={NotFound}></Route>
                 </Switch>
             </Router>
+        </Provider>
     </Container>
 )
 

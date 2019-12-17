@@ -1,63 +1,57 @@
 import React, {useState, useEffect} from 'react'
+import { connect } from 'react-redux'
 import history from '../constants/history'
 import styled from 'styled-components'
 import Search from '../components/Search'
 import Panel from '../components/Panel'
 import MovieList from '../components/MovieList'
+import { sortFunction } from '../lib/array-helper'
 
 const Header = styled.div`
     font-size: 3em; 
     padding: 20px 0px 0px 20px;
 `
 
-const Home = () => {
+const Home = ({movies=[], onSearch=f=>f, onSort=f=>f}) => {
 	const [serchOption, setSearchOption] = useState("title")
 	const [sortOption, setSortOption] = useState("release_date")
-	const [count, setCount] = useState(0)
-	const [movies, setMovies] = useState([])
 
 	useEffect(()=>{
-		search()
-	}, [])
-
-	const search = () => {
 		const searchQuery = history.location.search
+		onSearch(searchQuery)
+	},[])
 
-		if(searchQuery)
-		{
-			fetch(`https://reactjs-cdp.herokuapp.com/movies${searchQuery}&sortOrder=desc`)
-			.then(response=>response.json())
-			.then(data=>{
-				setCount(data.data.length)
-				setMovies(data.data)
-			})
-			
-		} else {
-			fetch("https://reactjs-cdp.herokuapp.com/movies?sortBy=release_date&sortOrder=desc")
-				.then(response=>response.json())
-				.then(data=>{
-					setCount(data.data.length)
-					setMovies(data.data)
-			})
-		}
-	}
+	const handleSearch = (searchValue, searchOption) =>{
+		history.push(`/search/search?sortBy=${sortOption}&searchBy=${searchOption}&search=${searchValue}`)
 
-	const onSort = (sortOption) => {
-		setSortOption(sortOption)
-	}
-
-	const onSearch = (searchValue, option) => {
-		history.push(`/search/search?sortBy=${sortOption}&searchBy=${option}&search=${searchValue}`)
-		search()
+		const searchQuery = history.location.search
+		onSearch(searchQuery)
 	}
 
 	return (
 		<>
 			<Header>FIND YOUR MOVIE</Header>
-			<Search onSearch={onSearch} />
-			<Panel movieCount={count} onSort={onSort} />
+			<Search onSearch={handleSearch} />
+			<Panel movieCount={movies.length} onSort={onSort} />
 			<MovieList items={movies} />
 		</>
 )}
 
-export default Home
+export default connect(
+	state => ({
+		movies:  state.movies.length > 0 ? [...state.movies].sort(sortFunction(state.sort)): []
+	}),
+
+	dispatch => ({
+		onSearch(searchQuery){
+			fetch(`https://reactjs-cdp.herokuapp.com/movies${searchQuery}&sortOrder=desc`)
+				.then(response=>response.json())
+				.then(data=>{
+					dispatch({type: "SET_MOVIES", items: data.data})
+				})
+		},
+		onSort(sortOption){
+			dispatch({type: "SORT_MOVIES", sortBy: sortOption})
+		}
+	})
+)(Home)

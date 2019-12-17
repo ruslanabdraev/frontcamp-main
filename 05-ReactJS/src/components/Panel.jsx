@@ -36,7 +36,7 @@ const Panel = ({movieCount=0, onSort=f=>f}) => {
             <RightContainer>
                 SORT BY 
                 <label>
-                    <input type="radio" ref={release => _release = release} id="release" name="sortby" value="release" readOnly defaultChecked onClick={handleSort}/>
+                    <input type="radio" ref={release => _release = release} id="release_date" name="sortby" value="release_date" readOnly defaultChecked onClick={handleSort}/>
                     RELEASE DATE
                 </label>
                 <label>

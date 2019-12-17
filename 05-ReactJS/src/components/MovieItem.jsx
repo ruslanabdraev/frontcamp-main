@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import history from '../constants/history'
 
 const Container = styled.div`
     display: inline-block;
@@ -25,9 +26,14 @@ const TitleAndGenre = styled.div`
 `
 
 const MovieItem = ({id=0, imageUrl="", title="", genre="", releasedAt=0}) => {
+    
+    const redirect = () => {
+        history.replace(`/movie/${id}`)
+    }
+
     return(
         <Container>
-            <NavLink to={"/movie/" + id }><Img src={imageUrl}></Img></NavLink>
+            <NavLink to={"/movie/" + id } ><Img src={imageUrl}></Img></NavLink>
             <div>
                 <TitleAndGenre><b>{title}</b><br/>{genre}</TitleAndGenre>
                 <Release>{releasedAt}</Release>
