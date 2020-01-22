@@ -5,6 +5,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NewsListComponent } from './components/news-list/news-list.component';
+import { NewsItemComponent } from './components/news-item/news-item.component';
 
 
 
@@ -12,7 +14,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [
     HeaderComponent,
     SidebarComponent,
-    FooterComponent  
+    FooterComponent,
+    NewsListComponent,
+    NewsItemComponent  
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   exports: [
     HeaderComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    NewsListComponent,
+    NewsItemComponent
   ]
 })
 export class SharedModule { }
