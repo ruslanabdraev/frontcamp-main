@@ -2,15 +2,29 @@
 
 <div>
     <b>Source: </b> 
-    <select>
-        <option>all</option>
-        <option>BBC</option>
-        <option>Local</option>
+    <select (change)='onSourceSelected($event)'>
+        <option value="bbc-news">BBC News</option>
+        <option value="fox-sports">Fox News</option>
+        <option value="local">Local</option>
     </select>
 </div>
+<!-- id:string;
+  @Input() title:string;
+  @Input() description:string;
+  @Input() url:string;
+  @Input() urlToImage: string;
+  @Input() publishedAt: string;
+  @Input() isLocal: boolean; -->
+
+<option class='option'  *ngFor='let option of dropDownData' [value]="option.seo_val">{{option.text_val}}</option>
 
 
-<app-news-item id="1" title="News 1" description="News description 1" imageUrl="nothing" date="null"></app-news-item>
-<app-news-item id="2" title="News 2" description="News description 2" imageUrl="nothing" date="null"></app-news-item>
-<app-news-item id="3" title="News 3" description="News description 3" imageUrl="nothing" date="null"></app-news-item>
-<app-news-item id="4" title="News 4" description="News description 4" imageUrl="nothing" date="null"></app-news-item>
+<app-news-item *ngFor='let news of newsArray' 
+    id="" 
+    title={{news.title}}
+    autor={{news.autor}}
+    description={{news.description}}
+    url={{news.url}}
+    urlToImage={{news.urlToImage}}
+    publishedAt={{news.publishedAt}}
+    isLocal={{isLocal}}></app-news-item>

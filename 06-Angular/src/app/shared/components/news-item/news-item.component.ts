@@ -6,12 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./news-item.component.scss']
 })
 export class NewsItemComponent implements OnInit {
-
   @Input() id:string;
+  @Input() autor:string;
   @Input() title:string;
   @Input() description:string;
-  @Input() imageUrl: string;
-  @Input() date: string;
+  @Input() url:string;
+  @Input() urlToImage: string;
+  @Input() publishedAt: string;
+  @Input() isLocal: boolean;
 
   constructor() { }
 
