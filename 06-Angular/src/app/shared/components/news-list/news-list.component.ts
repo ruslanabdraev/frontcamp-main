@@ -24,10 +24,10 @@ export class NewsListComponent implements OnInit {
 
     this.isLocal = sourceId === 'local';
 
-    this.apiService.getNews(this.isLocal ? null: sourceId)
+    this.apiService.getNews(sourceId)
       .then(response => response.json())
       .then(data => {
-        this.newsArray = data.articles;
+        this.newsArray = this.isLocal? data: data.articles;
         console.log(this.newsArray);
       });
   }
