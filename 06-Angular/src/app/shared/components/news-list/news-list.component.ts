@@ -7,7 +7,7 @@ import { ApiService } from '../../../api.service'
   styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent implements OnInit {
-  
+  filterNews: string;
   isLocal: boolean = false;
   newsArray: any = [];
 
@@ -30,6 +30,11 @@ export class NewsListComponent implements OnInit {
         this.newsArray = data.articles;
         console.log(this.newsArray);
       });
+  }
+
+  onFilter(filterNews:string){
+    const filteredNews = this.newsArray.filter(newsItem => JSON.stringify(newsItem).toLowerCase().indexOf(filterNews.toLowerCase()) !== -1)
+    this.newsArray = filteredNews;
   }
 
 }
