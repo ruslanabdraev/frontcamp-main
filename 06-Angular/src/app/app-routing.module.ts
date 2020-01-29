@@ -14,7 +14,8 @@ const routes: Routes = [
       { path: "", component: HomeComponent },
       { path: "contact", component: ContactComponent },
       { path: "news", component: NewsComponent },
-      { path: "news/:id", component: NewsOneComponent  }
+      { path: "newsone", component: NewsOneComponent  },
+      { path: "newsone/:id", component: NewsOneComponent  }
     ]
   }
 ];
