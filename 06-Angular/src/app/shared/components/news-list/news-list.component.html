@@ -17,9 +17,9 @@
 
 
 <app-news-item *ngFor='let news of newsArray' 
-    id="" 
+    id={{news.id}} 
     title={{news.title}}
-    autor={{news.autor}}
+    author={{news.author}}
     description={{news.description}}
     url={{news.url}}
     urlToImage={{news.urlToImage}}

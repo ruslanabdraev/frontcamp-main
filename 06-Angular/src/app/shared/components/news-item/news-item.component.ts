@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NewsItemComponent implements OnInit {
   @Input() id:string;
-  @Input() autor:string;
+  @Input() author:string;
   @Input() title:string;
   @Input() description:string;
   @Input() url:string;
