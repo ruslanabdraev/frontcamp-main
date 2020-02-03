@@ -37,4 +37,9 @@ export class NewsListComponent implements OnInit {
     this.newsArray = filteredNews;
   }
 
+  onNewsDelete(event){
+    const news = this.newsArray.filter(newsItem => newsItem.id != event);
+    this.newsArray = news;
+  }
+
 }

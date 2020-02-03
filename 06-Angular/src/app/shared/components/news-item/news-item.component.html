@@ -5,7 +5,7 @@
     <div *ngIf="url"><b>Url: </b> {{url}}</div>
     <div><b>Url to image: </b> {{urlToImage}}</div>
     <div><b>Published: </b> {{publishedAt}}</div>
-    <div *ngIf="id"><a routerLink="/newsone">ADD</a> </div>
     <div *ngIf="id"><a routerLink="/newsone/{{id}}">EDIT</a> </div>
+    <div *ngIf="id"><a routerLink="/news" (click)="onDelete(id)">DELETE</a> </div>
 <p>
-    
+        

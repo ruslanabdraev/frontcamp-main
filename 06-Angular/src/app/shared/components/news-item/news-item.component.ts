@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-news-item',
@@ -15,9 +15,16 @@ export class NewsItemComponent implements OnInit {
   @Input() publishedAt: string;
   @Input() isLocal: boolean;
 
+  @Output()
+  onNewsDelete:EventEmitter<string> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDelete(id:string){
+    this.onNewsDelete.emit(id);
   }
 
 }

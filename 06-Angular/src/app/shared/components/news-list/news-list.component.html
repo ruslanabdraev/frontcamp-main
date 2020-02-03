@@ -24,4 +24,6 @@
     url={{news.url}}
     urlToImage={{news.urlToImage}}
     publishedAt={{news.publishedAt}}
-    isLocal={{isLocal}}></app-news-item>
+    isLocal={{isLocal}}
+    (onNewsDelete)="onNewsDelete($event)"
+    ></app-news-item>
