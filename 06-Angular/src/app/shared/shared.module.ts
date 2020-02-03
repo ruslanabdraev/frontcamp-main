@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsItemComponent } from './components/news-item/news-item.component';
-
-
+import { NewsEditComponent } from './components/news-edit/news-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,20 +17,23 @@ import { NewsItemComponent } from './components/news-item/news-item.component';
     SidebarComponent,
     FooterComponent,
     NewsListComponent,
-    NewsItemComponent  
+    NewsItemComponent,
+    NewsEditComponent  
   ],
   imports: [
     FormsModule,
     CommonModule,
     RouterModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule,
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
     NewsListComponent,
-    NewsItemComponent
+    NewsItemComponent,
+    NewsEditComponent
   ]
 })
 export class SharedModule { }
