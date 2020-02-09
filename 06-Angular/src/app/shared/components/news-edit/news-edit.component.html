@@ -1,0 +1,27 @@
+<form [formGroup]="newsFormGroup">
+  <div>
+    <label>
+      Title:
+      <input type="text" [formControl]="titleInput" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Description:
+      <input type="text" [formControl]="descriptionInput" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Url To Image:
+      <input type="text" [formControl]="urlToImageInput" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Published At:
+      <input type="text" [formControl]="publishedAtInput" />
+    </label>
+  </div>
+</form>
+<button (click)="submitForm()">Submit</button>

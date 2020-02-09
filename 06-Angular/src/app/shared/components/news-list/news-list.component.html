@@ -1,0 +1,29 @@
+<p>news-list works!</p>
+
+<div>
+    <b>Source: </b> 
+    <select (change)='onSourceSelected($event)'>
+        <option value="bbc-news">BBC News</option>
+        <option value="fox-sports">Fox News</option>
+        <option value="local">Local</option>
+    </select>
+</div>
+<div>
+    <input type="text" [(ngModel)]='filterNews' />
+    <button (click)='onFilter(filterNews)'>Filter</button>
+</div>
+
+<option class='option'  *ngFor='let option of dropDownData' [value]="option.seo_val">{{option.text_val}}</option>
+
+
+<app-news-item *ngFor='let news of newsArray' 
+    id={{news.id}} 
+    title={{news.title}}
+    author={{news.author}}
+    description={{news.description}}
+    url={{news.url}}
+    urlToImage={{news.urlToImage}}
+    publishedAt={{news.publishedAt}}
+    isLocal={{isLocal}}
+    (onNewsDelete)="onNewsDelete($event)"
+    ></app-news-item>
