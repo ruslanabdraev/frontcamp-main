@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormGroup } from "@angular/forms";
 
 import { NewsEditComponent } from './news-edit.component';
 
@@ -9,7 +9,8 @@ describe('NewsEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsEditComponent, FormsModule ]
+      imports: [ ReactiveFormsModule ],
+      declarations: [ NewsEditComponent ]
     })
     .compileComponents();
   }));
@@ -20,7 +21,7 @@ describe('NewsEditComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
