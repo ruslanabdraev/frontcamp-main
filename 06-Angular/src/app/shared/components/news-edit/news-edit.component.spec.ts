@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule, FormGroup } from "@angular/forms";
 
 import { NewsEditComponent } from './news-edit.component';
 
@@ -8,6 +9,7 @@ describe('NewsEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ ReactiveFormsModule ],
       declarations: [ NewsEditComponent ]
     })
     .compileComponents();
