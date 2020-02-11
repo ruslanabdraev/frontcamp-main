@@ -44,4 +44,19 @@ describe('DefaultComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('has app-header element', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector("app-header")).toBeTruthy();
+  });
+
+  it('has app-sidebar element', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector("app-sidebar")).toBeTruthy();
+  });
+  
+  it('has app-footer element', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector("app-footer")).toBeTruthy();
+  });
 });
